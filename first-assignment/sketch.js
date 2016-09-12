@@ -21,8 +21,8 @@ r.ellipse(525, 200, 250, 250)
   .fill(255, 255, 255)
   .stroke(true)
 
-var x = 100;
-for(var i = 0; i < 20; i++) {
+var x = 525;
+for(var i = 4; i < 17; i++) {
   r.rect(x, i * 20, 5, 5);
   if(i < 10) {
     x += 10;  
