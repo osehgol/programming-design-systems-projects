@@ -8,8 +8,8 @@ var i,j;
 
 var r = new Rune({
   container: "#canvas",
-  width: 800,
-  height: 800,
+  width: 1200,
+  height: 1200,
   debug: true
 });
 
@@ -24,25 +24,28 @@ r.ellipse(650, 200, 30, 30)
 
 //path
 r.polygon(0, 0)
-  .lineTo(525, 325) 
-  .lineTo(575, 325)
-  .lineTo(700, 500)
-  .lineTo(100, 500)
+  .lineTo(525, 625) 
+  .lineTo(575, 625)
+  .lineTo(700, 800)
+  .lineTo(100, 800)
   .fill(255);
 
   //astronaut
-r.ellipse(30, 550, 150, 150)
+r.ellipse(30, 950, 150, 150)
   .fill(255, 255, 255)
   .stroke(true)
 
-r.ellipse(5, 560, 150, 150)
+r.ellipse(5, 960, 150, 150)
   .fill()
   .stroke(true)
 
-r.rect(0, 600, 135, 200)
+r.rect(0, 1000, 135, 200)
   .fill()
   .stroke()
 
+// r.path(0, 0)
+//   .lineTo(100, 0)
+//   .curveTo(100, 100, 0, 100, 0, 0);
 
 
 // var x = 525;
