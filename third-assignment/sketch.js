@@ -26,15 +26,30 @@ r.path(325,149)
 //  .fill(255)
 //  .curveTo(-55, 100, 5, 40)
 
+// splash group
+var splashGroup = r.group(395, 413);
+
+// splash
+r.path(50, -20, splashGroup)
+ .fill(255, 1)
+ .curveTo(-17, 35, -15, 75) 
+
+r.path(0, -20, splashGroup)
+ .fill(255, 1)
+ .curveTo(17, 30, 10, 75)
+
+// droplet group 
+var dropletGroup = r.group(395, 413);
+
 // droplet
-r.path(400, 410)
+r.path(0, 0, dropletGroup)
  .fill(255, 1)
  .curveTo(0, 0, 5, -5, 50, 0)
  .curveTo(50, 0, 45, 5, 45, 30)
  .curveTo(45, 30, 30, 25, 5, 30)
  .curveTo(5, 30, 5, 20, 0, 0)
 
-r.path(445, 440)
+r.path(45, 30, dropletGroup)
  .fill(255, 1)
  .curveTo(0, 0, -5, 5, -40, 0)
 
