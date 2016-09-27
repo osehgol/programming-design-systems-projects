@@ -21,9 +21,23 @@ r.path(325,149)
   .curveTo(75,250,100,300,75.250)
   .closePath();
 
+// // fall
+// r.path(500, 400)
+//  .fill(255)
+//  .curveTo(-55, 100, 5, 40)
+
 // droplet
-r.path(455, 400)
- .curveTo()
+r.path(400, 410)
+ .fill(255, 1)
+ .curveTo(0, 0, 5, -5, 50, 0)
+ .curveTo(50, 0, 45, 5, 45, 30)
+ .curveTo(45, 30, 30, 25, 5, 30)
+ .curveTo(5, 30, 5, 20, 0, 0)
+
+r.path(445, 440)
+ .fill(255, 1)
+ .curveTo(0, 0, -5, 5, -40, 0)
+
 
 // playful circle
 
