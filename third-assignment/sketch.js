@@ -1,7 +1,7 @@
 var r = new Rune({
   container: "#canvas",
-  width: 1200,
-  height: 800,
+  width: 750,
+  height: 700,
   frameRate: 24
 });
 
@@ -10,7 +10,6 @@ var splashGroup = r.group(395, 413);
 
 for(var i=0; i < 4; i++){
 
-  // splash
 r.path(50, (-20*i)+5, splashGroup)
  .fill(255, 1)
  .curveTo(-17, 35, -15, 75) 
@@ -25,8 +24,6 @@ r.path(0, (-20*i)+5, splashGroup)
 var splashGroupLeft = r.group(275, 418);
 
 for(var i=0; i < 4; i++){
-
-  // splash
 r.path(50, (-20*i)+5, splashGroupLeft)
  .fill(255, 1)
  .curveTo(-17, 35, -15, 75) 
@@ -34,7 +31,6 @@ r.path(50, (-20*i)+5, splashGroupLeft)
 r.path(0, (-20*i)+5, splashGroupLeft)
  .fill(255, 1)
  .curveTo(17, 30, 10, 75)  
-
 }
 
 
@@ -62,7 +58,9 @@ r.path(325,149)
 // droplet group right
 var dropletGroup = r.group(395, 418);
 
-// droplet
+for(var i=0; i<4; i++){
+
+  // droplet
 r.path(0, 0, dropletGroup)
  .fill(255, 1)
  .curveTo(0, 0, 5, -5, 50, 0)
@@ -73,6 +71,9 @@ r.path(0, 0, dropletGroup)
 r.path(45, 30, dropletGroup)
  .fill(255, 1)
  .curveTo(0, 0, -5, 5, -40, 0)
+
+
+}
 
 
 // droplet group left 
