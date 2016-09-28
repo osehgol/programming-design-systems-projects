@@ -5,6 +5,39 @@ var r = new Rune({
   frameRate: 24
 });
 
+// splash group right
+var splashGroup = r.group(395, 413);
+
+for(var i=0; i < 4; i++){
+
+  // splash
+r.path(50, (-20*i)+5, splashGroup)
+ .fill(255, 1)
+ .curveTo(-17, 35, -15, 75) 
+
+r.path(0, (-20*i)+5, splashGroup)
+ .fill(255, 1)
+ .curveTo(17, 30, 10, 75)  
+
+}
+
+// splash group left
+var splashGroupLeft = r.group(275, 418);
+
+for(var i=0; i < 4; i++){
+
+  // splash
+r.path(50, (-20*i)+5, splashGroupLeft)
+ .fill(255, 1)
+ .curveTo(-17, 35, -15, 75) 
+
+r.path(0, (-20*i)+5, splashGroupLeft)
+ .fill(255, 1)
+ .curveTo(17, 30, 10, 75)  
+
+}
+
+
 // \/
 r.path(200, 150)
   .lineTo(75,250)
@@ -26,20 +59,8 @@ r.path(325,149)
 //  .fill(255)
 //  .curveTo(-55, 100, 5, 40)
 
-// splash group
-var splashGroup = r.group(395, 413);
-
-// splash
-r.path(50, -20, splashGroup)
- .fill(255, 1)
- .curveTo(-17, 35, -15, 75) 
-
-r.path(0, -20, splashGroup)
- .fill(255, 1)
- .curveTo(17, 30, 10, 75)
-
-// droplet group 
-var dropletGroup = r.group(395, 413);
+// droplet group right
+var dropletGroup = r.group(395, 418);
 
 // droplet
 r.path(0, 0, dropletGroup)
@@ -52,6 +73,23 @@ r.path(0, 0, dropletGroup)
 r.path(45, 30, dropletGroup)
  .fill(255, 1)
  .curveTo(0, 0, -5, 5, -40, 0)
+
+
+// droplet group left 
+var dropletGroupLeft = r.group(275, 418);
+
+// droplet
+r.path(0, 0, dropletGroupLeft)
+ .fill(255, 1)
+ .curveTo(0, 0, 5, -5, 50, 0)
+ .curveTo(50, 0, 45, 5, 45, 30)
+ .curveTo(45, 30, 30, 25, 5, 30)
+ .curveTo(5, 30, 5, 20, 0, 0)
+
+r.path(45, 30, dropletGroupLeft)
+ .fill(255, 1)
+ .curveTo(0, 0, -5, 5, -40, 0)
+
 
 
 // playful circle
