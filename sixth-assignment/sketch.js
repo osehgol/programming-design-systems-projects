@@ -1,7 +1,6 @@
 var pct = 0; 
 var exponent = 4;
-var l = 0;
-var m = 0;
+var step = 0.01;
 
 var r = new Rune({
   container: "#canvas",
@@ -17,6 +16,7 @@ var sm = w * 0.17;
 var me = w * 0.25;
 var la = w * 0.5;
 
+
 var letters = {
   b : {
     c1x: w * 0.75,
@@ -28,10 +28,16 @@ var letters = {
     c3x: w * 0.75,
     c3y: h * 1.75,
     c3s: sm
+  },
+
+  a : {
+    c3x: w * 0.75,
+    c3y: h * 0.25,
+    c3s: sm,
   }
 };
 
-function drawLetter(letter, width, height, moduleHeight) {
+function drawLetter(letter, width, height, moduleHeight, letterA) {
   var myGroup = r.group(0, 0);
   // r.rect(0, 0, w, h, myGroup).stroke(false)
 
@@ -62,6 +68,20 @@ function drawLetter(letter, width, height, moduleHeight) {
   }
   r.circle(letter.c3x, letter.c3y, letter.c3s, myGroup).fill(255, 0, 0).stroke(false);  
 
+// console.log(letter.c3x+moduleHeight*2);  
+
+
+  var thisX = letterA.c3x;
+  var thisY = letterA.c3y;
+
+  // small "a"
+  pct += step;
+   if (pct < 1.0) {
+    thisX = 2*250 - pct * 220;
+    thisY = 2*250 - pow(pct, + exponent) * 220;
+  }
+  r.circle(thisX, thisY, letterA.c3s, myGroup).fill(255, 0, 0).stroke(false);  
+
 }
 
 function draw(){
@@ -82,13 +102,15 @@ var gridWidth = grid.state.width;
 var gridHeight = grid.state.height;
 var gridModuleHeight = grid.state.moduleHeight;
 
+// console.log(gridModuleHeight);
+
 
 var size = 40;
 
 r.draw();
 
-drawLetter(letters.b, gridWidth, gridHeight, gridModuleHeight);
-
+drawLetter(letters.b, gridWidth, gridHeight, gridModuleHeight, letters.a);
+// https://processing.org/examples/movingoncurves.html
 
 };
 
