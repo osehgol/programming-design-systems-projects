@@ -10,6 +10,7 @@ var gridHeight;
 var gridModuleHeight;
 var gridModuleWidth;
 var gridGutter;
+var innerSquareWidth;
 
 
 function setup(){
@@ -28,6 +29,7 @@ var grid = r.grid({
 gridWidth = grid.state.width;
 gridHeight = grid.state.height;
 gridGutter = grid.state.gutter; 
+innerSquareWidth = gridWidth / grid.state.rows;
 gridModuleHeight = grid.state.moduleHeight*2 - gridGutter;
 gridModuleWidth = grid.state.moduleWidth*2 - gridGutter;
 
@@ -41,8 +43,8 @@ var la = w * 0.5;
 
 var letters = {
   t : {
-    r1x: gridModuleHeight,
-    r1y: gridModuleWidth,
+    r1x: gridModuleWidth,
+    r1y: gridModuleHeight,
     r1w: gridGutter,
     r1h: gridGutter
   }, 
@@ -55,22 +57,21 @@ var letters = {
 };
 
 // draw 
-draw(letters, gridWidth, gridHeight, gridModuleHeight, gridModuleWidth, gridGutter);
+draw(letters, gridWidth, gridHeight, gridModuleHeight, gridModuleWidth, gridGutter, innerSquareWidth);
 
 }
 
 
-function draw(letter, gridWidth, gridHeight, gridModuleHeight, gridModuleWidth, gridGutter){
-console.log(letter.t);
+function draw(letter, gridWidth, gridHeight, gridModuleHeight, gridModuleWidth, gridGutter, innerSquareWidth){
 
-drawLetter(letter.t, letter.s, this.gridWidth, this.gridHeight);
+// drawLetter(letter.t, letter.s, this.gridWidth, this.gridHeight);
+drawLetter(letter.t, letter.s, this.gridWidth, this.gridHeight, this.gridModuleHeight, this.gridModuleWidth, this.gridGutter, this.innerSquareWidth);
 
 r.draw();
 
-
 };
 
-function drawLetter(letterT, letterS, width, height) {
+function drawLetter(letterT, letterS, width, height, modHeight, modWidth, modGutter, innerSquare) {
 
   var myGroup = r.group(0, 0);
 
@@ -79,7 +80,14 @@ function drawLetter(letterT, letterS, width, height) {
   var tW = letterT.r1w;
   var tH = letterT.r1h;
 
-  r.rect(tX, tY, tW, tH, myGroup).fill(255, 0, 0).stroke(false);   
+  console.log("modWidth: "+modWidth);
+  console.log("width: "+width);
+
+  r.rect(tX, tY, tW, tH, myGroup).fill(255, 0, 0).stroke(false);
+  r.rect(tX+innerSquare, tY, tW, tH, myGroup).fill(255, 0, 0).stroke(false);
+  r.rect((tX+innerSquare*2), tY, tW, tH, myGroup).fill(255, 0, 0).stroke(false);
+  r.rect((tX+innerSquare), (tY+innerSquare), tW, tH, myGroup).fill(255, 0, 0).stroke(false);
+  r.rect((tX+innerSquare), (tY+innerSquare*2), tW, tH, myGroup).fill(255, 0, 0).stroke(false);  
  
 }
 
