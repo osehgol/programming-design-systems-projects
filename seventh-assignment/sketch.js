@@ -1,8 +1,3 @@
-var pct = 0; 
-var exponent = 4;
-var l = 0;
-var m = 0;
-
 var r = new Rune({
   container: "#canvas",
   width: 800,
@@ -10,6 +5,33 @@ var r = new Rune({
   debug: true
 });
 
+var gridWidth;
+var gridHeight;
+var gridModuleHeight;
+var gridModuleWidth;
+var gridGutter;
+
+
+function setup(){
+
+// grid
+var grid = r.grid({
+  x: 50,
+  y: 50,
+  width: r.width - 100,
+  height: r.height - 100,
+  gutter: 20,
+  columns: 8,
+  rows: 8
+});
+
+gridWidth = grid.state.width;
+gridHeight = grid.state.height;
+gridGutter = grid.state.gutter; 
+gridModuleHeight = grid.state.moduleHeight*2 - gridGutter;
+gridModuleWidth = grid.state.moduleWidth*2 - gridGutter;
+
+// letters object t & s
 
 var w = 130;
 var h = 150;
@@ -18,55 +40,47 @@ var me = w * 0.25;
 var la = w * 0.5;
 
 var letters = {
-  b : {
-    c1x: w * 0.75,
-    c1y: h * 0.25,
-    c1s: sm,
-    c2x: w * 0.7,
-    c2y: h * 0.66,
-    c2s: me
+  t : {
+    r1x: gridModuleHeight,
+    r1y: gridModuleWidth,
+    r1w: gridGutter,
+    r1h: gridGutter
+  }, 
+
+  s : {
+    r1x: w * 0.75,
+    r1y: h * 0.25,
+    r1s: sm,
   }
 };
 
-function drawLetter(letter, width, height) {
-  var myGroup = r.group(0, 0);
-  // r.rect(0, 0, w, h, myGroup).stroke(false)
- 
-  l += 5;
-  if(pct < 1.0){
-    l = 0 + (pct * width);
-    m = 0 + (pow(pct, exponent)*height) ;
-  }
+// draw 
+draw(letters, gridWidth, gridHeight, gridModuleHeight, gridModuleWidth, gridGutter);
 
-  r.circle(l, m, letter.c1s, myGroup).fill(255, 0, 0).stroke(false);
-  console.log(letter.c1x)    
- 
 }
 
-function draw(){
 
-drawLetter(letters.b, gridWidth, gridHeight);
+function draw(letter, gridWidth, gridHeight, gridModuleHeight, gridModuleWidth, gridGutter){
+console.log(letter.t);
 
-// grid
-
-var grid = r.grid({
-  x: 50,
-  y: 50,
-  width: r.width - 100,
-  height: r.height - 100,
-  gutter: 20,
-  columns: 3,
-  rows: 3
-});
-
-var gridWidth = grid.state.width;
-var gridHeight = grid.state.height;
-
-var size = 40;
+drawLetter(letter.t, letter.s, this.gridWidth, this.gridHeight);
 
 r.draw();
 
 
 };
+
+function drawLetter(letterT, letterS, width, height) {
+
+  var myGroup = r.group(0, 0);
+
+  var tX = letterT.r1x;
+  var tY = letterT.r1y;
+  var tW = letterT.r1w;
+  var tH = letterT.r1h;
+
+  r.rect(tX, tY, tW, tH, myGroup).fill(255, 0, 0).stroke(false);   
+ 
+}
 
 
