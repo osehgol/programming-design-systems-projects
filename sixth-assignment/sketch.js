@@ -1,3 +1,8 @@
+var pct = 0; 
+var exponent = 4;
+var l = 0;
+var m = 0;
+
 var r = new Rune({
   container: "#canvas",
   width: 800,
@@ -5,33 +10,86 @@ var r = new Rune({
   debug: true
 });
 
-// Create a rectangle to fill the entire screen
-// and a smaller rectangle on top
+
+var w = 130;
+var h = 150;
+var sm = w * 0.17;
+var me = w * 0.25;
+var la = w * 0.5;
+
+var letters = {
+  b : {
+    c1x: w * 0.75,
+    c1y: h * 0.25,
+    c1s: sm,
+    c2x: w * 0.75,
+    c2y: h * 0.25,
+    c2s: sm,
+    c3x: w * 0.75,
+    c3y: h * 1.75,
+    c3s: sm
+  }
+};
+
+function drawLetter(letter, width, height, moduleHeight) {
+  var myGroup = r.group(0, 0);
+  // r.rect(0, 0, w, h, myGroup).stroke(false)
+
+  console.log(width);
+  console.log(moduleHeight);
+
+
+  if(letter.c1x <= width){
+    letter.c1x += 5;
+  } else if (letter.c1y < height){
+    letter.c1y += 5;
+  } 
+  // else if (letter.c1y == 220){
+  //   letter.c1x -= 5;
+  // }
+
+  r.circle(letter.c1x, letter.c1y, letter.c1s, myGroup).fill(255, 0, 0).stroke(false);
+
+  if(letter.c2y <= height){
+    letter.c2y += 5;
+  } 
+
+  r.circle(letter.c2x, letter.c2y, letter.c2s, myGroup).fill(255, 0, 0).stroke(false);  
+  
+
+  if(letter.c3x <= width){
+    letter.c3x +=5;
+  }
+  r.circle(letter.c3x, letter.c3y, letter.c3s, myGroup).fill(255, 0, 0).stroke(false);  
+
+}
+
+function draw(){
+
+// grid
+
 var grid = r.grid({
   x: 50,
   y: 50,
   width: r.width - 100,
   height: r.height - 100,
-  gutter: 60,
+  gutter: 20,
   columns: 3,
   rows: 3
 });
 
-console.log(grid.state.moduleWidth);
+var gridWidth = grid.state.width;
+var gridHeight = grid.state.height;
+var gridModuleHeight = grid.state.moduleHeight;
+
 
 var size = 40;
 
-for(var i = 0; i < 50; i++)
-{
-  var color = new Rune.Color(Rune.random(0, 255), Rune.random(0, 255), Rune.random(0, 255));
-  var x = Rune.random(size, grid.state.moduleWidth - size);
-  var y = Rune.random(size, grid.state.moduleHeight - size);
-  var circle = r.circle(x, y, size).fill(color).stroke(false);
-
-  // we use .ceil because numbers start at 1
-  var randomCol = Math.ceil(Rune.random(grid.state.columns));
-  var randomRow = Math.ceil(Rune.random(grid.state.rows));
-  grid.add(circle, randomCol, randomRow);
-}
-
 r.draw();
+
+drawLetter(letters.b, gridWidth, gridHeight, gridModuleHeight);
+
+
+};
+
+
