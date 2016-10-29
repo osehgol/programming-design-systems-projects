@@ -73,7 +73,7 @@ var hue3 = (Math.floor(Math.random() * 256));
 
   var pos = lines[curLine].fromVec.lerp(lines[curLine].toVec, cur);
 
-if(pos.y >= 400) {
+if(pos.x >= 400) {
     r.rect(pos.x, pos.y, gridGutter, gridGutter).fill(hue,hue2,0).stroke(false);
 } else {
     r.rect(pos.x, pos.y, gridGutter, gridGutter).fill(255,0,0).stroke(false);
