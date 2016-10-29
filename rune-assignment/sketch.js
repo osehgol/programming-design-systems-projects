@@ -43,7 +43,25 @@ var lines = [
   { fromVec: new Rune.Vector(gridModuleWidth*4.75, gridModuleHeight), toVec: new Rune.Vector(gridModuleWidth*4.75, gridModuleHeight*1.75)},
   { fromVec: new Rune.Vector(gridModuleWidth*4.75, gridModuleHeight*1.75), toVec: new Rune.Vector(gridModuleWidth*5.5, gridModuleHeight*1.75)},
   { fromVec: new Rune.Vector(gridModuleWidth*5.5, gridModuleHeight*1.75), toVec: new Rune.Vector(gridModuleWidth*5.5, gridModuleHeight*2.35)},
-  { fromVec: new Rune.Vector(gridModuleWidth*5.5, gridModuleHeight*2.35), toVec: new Rune.Vector(gridModuleWidth*4, gridModuleHeight*2.35)}
+  { fromVec: new Rune.Vector(gridModuleWidth*5.5, gridModuleHeight*2.35), toVec: new Rune.Vector(gridModuleWidth*4, gridModuleHeight*2.35)},
+
+  { fromVec: new Rune.Vector(gridModuleWidth, gridModuleHeight*4), toVec: new Rune.Vector(gridModuleWidth*2.5, gridModuleHeight*4)},
+  { fromVec: new Rune.Vector(gridModuleWidth*1.75, gridModuleHeight*4), toVec: new Rune.Vector(gridModuleWidth*1.75, gridModuleHeight*4.35)},
+  { fromVec: new Rune.Vector(gridModuleWidth*2, gridModuleHeight*4.35), toVec: new Rune.Vector(gridModuleWidth*2.5, gridModuleHeight*4.35)},
+  { fromVec: new Rune.Vector(gridModuleWidth*2.5, gridModuleHeight*4.35), toVec: new Rune.Vector(gridModuleWidth*2.5, gridModuleHeight*4.75)},
+  { fromVec: new Rune.Vector(gridModuleWidth*2.5, gridModuleHeight*4.75), toVec: new Rune.Vector(gridModuleWidth, gridModuleHeight*4.75)},
+
+
+  { fromVec: new Rune.Vector(gridModuleWidth*4, gridModuleHeight*4), toVec: new Rune.Vector(gridModuleWidth*5.5, gridModuleHeight*4)},
+  { fromVec: new Rune.Vector(gridModuleWidth*4.75, gridModuleHeight*4), toVec: new Rune.Vector(gridModuleWidth*4.75, gridModuleHeight*4.35)},
+  { fromVec: new Rune.Vector(gridModuleWidth*4, gridModuleHeight*4.65), toVec: new Rune.Vector(gridModuleWidth*5.5, gridModuleHeight*4.65)},
+  { fromVec: new Rune.Vector(gridModuleWidth*5.5, gridModuleHeight*4.65), toVec: new Rune.Vector(gridModuleWidth*5.5, gridModuleHeight*5.05)},
+  { fromVec: new Rune.Vector(gridModuleWidth*5.5, gridModuleHeight*5.05), toVec: new Rune.Vector(gridModuleWidth*4, gridModuleHeight*5.05)}
+  // { fromVec: new Rune.Vector(gridModuleWidth*2, gridModuleHeight*4.35), toVec: new Rune.Vector(gridModuleWidth*2.5, gridModuleHeight*4.35)},
+  // { fromVec: new Rune.Vector(gridModuleWidth*2.5, gridModuleHeight*4.35), toVec: new Rune.Vector(gridModuleWidth*2.5, gridModuleHeight*4.75)},
+  // { fromVec: new Rune.Vector(gridModuleWidth*2.5, gridModuleHeight*4.75), toVec: new Rune.Vector(gridModuleWidth, gridModuleHeight*4.75)}
+
+
 
 
 ];
