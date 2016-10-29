@@ -57,12 +57,6 @@ var lines = [
   { fromVec: new Rune.Vector(gridModuleWidth*4, gridModuleHeight*4.65), toVec: new Rune.Vector(gridModuleWidth*5.5, gridModuleHeight*4.65)},
   { fromVec: new Rune.Vector(gridModuleWidth*5.5, gridModuleHeight*4.65), toVec: new Rune.Vector(gridModuleWidth*5.5, gridModuleHeight*5.05)},
   { fromVec: new Rune.Vector(gridModuleWidth*5.5, gridModuleHeight*5.05), toVec: new Rune.Vector(gridModuleWidth*4, gridModuleHeight*5.05)}
-  // { fromVec: new Rune.Vector(gridModuleWidth*2, gridModuleHeight*4.35), toVec: new Rune.Vector(gridModuleWidth*2.5, gridModuleHeight*4.35)},
-  // { fromVec: new Rune.Vector(gridModuleWidth*2.5, gridModuleHeight*4.35), toVec: new Rune.Vector(gridModuleWidth*2.5, gridModuleHeight*4.75)},
-  // { fromVec: new Rune.Vector(gridModuleWidth*2.5, gridModuleHeight*4.75), toVec: new Rune.Vector(gridModuleWidth, gridModuleHeight*4.75)}
-
-
-
 
 ];
 
@@ -73,8 +67,17 @@ var curLine = 0;
 // draw
 r.on('update', function() {
 
+var hue = (Math.floor(Math.random() * 256));
+var hue2 = (Math.floor(Math.random() * 256));
+var hue3 = (Math.floor(Math.random() * 256));
+
   var pos = lines[curLine].fromVec.lerp(lines[curLine].toVec, cur);
-  r.rect(pos.x, pos.y, gridGutter, gridGutter).fill(255,0,0).stroke(false);
+
+if(pos.y >= 400) {
+    r.rect(pos.x, pos.y, gridGutter, gridGutter).fill(hue,hue2,0).stroke(false);
+} else {
+    r.rect(pos.x, pos.y, gridGutter, gridGutter).fill(255,0,0).stroke(false);
+}
 
   cur += 0.01;  
 
