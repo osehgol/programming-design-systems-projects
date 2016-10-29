@@ -29,18 +29,27 @@ var gridModuleWidth = grid.state.moduleWidth*2 - gridGutter;
 // letters T & S
 var lines = [
   { fromVec: new Rune.Vector(gridModuleWidth, gridModuleHeight), toVec: new Rune.Vector(gridModuleWidth*2.5, gridModuleHeight)},
-  { fromVec: new Rune.Vector(gridModuleWidth*1.75, gridModuleHeight), toVec: new Rune.Vector(gridModuleWidth*1.75, gridModuleHeight*2.5)}
+  { fromVec: new Rune.Vector(gridModuleWidth*1.75, gridModuleHeight), toVec: new Rune.Vector(gridModuleWidth*1.75, gridModuleHeight*1.75)},
+
+  { fromVec: new Rune.Vector(gridModuleWidth*2.5, gridModuleHeight*2), toVec: new Rune.Vector(gridModuleWidth, gridModuleHeight*2)},
+  { fromVec: new Rune.Vector(gridModuleWidth, gridModuleHeight*2), toVec: new Rune.Vector(gridModuleWidth, gridModuleHeight*2.5)},
+  { fromVec: new Rune.Vector(gridModuleWidth, gridModuleHeight*2.5), toVec: new Rune.Vector(gridModuleWidth*2.5, gridModuleHeight*2.5)},
+
+  { fromVec: new Rune.Vector(gridModuleWidth*2.5, gridModuleHeight*2.5), toVec: new Rune.Vector(gridModuleWidth*2.5, gridModuleHeight*3)},
+  { fromVec: new Rune.Vector(gridModuleWidth*2.5, gridModuleHeight*3), toVec: new Rune.Vector(gridModuleWidth, gridModuleHeight*3)}
+
 ];
+
 
 var cur = 0;
 var curLine = 0;
-
 
 // draw
 r.on('update', function() {
 
   var pos = lines[curLine].fromVec.lerp(lines[curLine].toVec, cur);
   r.rect(pos.x, pos.y, gridGutter, gridGutter).fill(255,0,0).stroke(false);
+
   cur += 0.01;  
 
   if(cur > 1) {
