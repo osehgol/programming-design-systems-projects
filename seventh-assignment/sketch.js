@@ -57,21 +57,13 @@ var letters = {
 };
 
 // draw 
-draw(letters, gridWidth, gridHeight, gridModuleHeight, gridModuleWidth, gridGutter, innerSquareWidth);
+draw(letters.t, letters.s, gridWidth, gridHeight, gridModuleHeight, gridModuleWidth, gridGutter, innerSquareWidth);
 
 }
 
-
-function draw(letter, gridWidth, gridHeight, gridModuleHeight, gridModuleWidth, gridGutter, innerSquareWidth){
-
-// drawLetter(letter.t, letter.s, this.gridWidth, this.gridHeight);
-drawLetter(letter.t, letter.s, this.gridWidth, this.gridHeight, this.gridModuleHeight, this.gridModuleWidth, this.gridGutter, this.innerSquareWidth);
-
-r.draw();
-
-};
-
 function drawLetter(letterT, letterS, width, height, modHeight, modWidth, modGutter, innerSquare) {
+
+  console.log(letterT);
 
   var myGroup = r.group(0, 0);
 
@@ -80,15 +72,30 @@ function drawLetter(letterT, letterS, width, height, modHeight, modWidth, modGut
   var tW = letterT.r1w;
   var tH = letterT.r1h;
 
-  console.log("modWidth: "+modWidth);
-  console.log("width: "+width);
+  if(letterT.r1x < (letterT.r1x + innerSquare*2)){
+    letterT.r1x += 5;
+  }
 
   r.rect(tX, tY, tW, tH, myGroup).fill(255, 0, 0).stroke(false);
-  r.rect(tX+innerSquare, tY, tW, tH, myGroup).fill(255, 0, 0).stroke(false);
-  r.rect((tX+innerSquare*2), tY, tW, tH, myGroup).fill(255, 0, 0).stroke(false);
-  r.rect((tX+innerSquare), (tY+innerSquare), tW, tH, myGroup).fill(255, 0, 0).stroke(false);
-  r.rect((tX+innerSquare), (tY+innerSquare*2), tW, tH, myGroup).fill(255, 0, 0).stroke(false);  
+  // r.rect(tX+innerSquare, tY, tW, tH, myGroup).fill(255, 0, 0).stroke(false);
+  // r.rect((tX+innerSquare*2), tY, tW, tH, myGroup).fill(255, 0, 0).stroke(false);
+  // r.rect((tX+innerSquare), (tY+innerSquare), tW, tH, myGroup).fill(255, 0, 0).stroke(false);
+  // r.rect((tX+innerSquare), (tY+innerSquare*2), tW, tH, myGroup).fill(255, 0, 0).stroke(false);  
  
 }
+
+
+function draw(letterT, letterS, gridWidth, gridHeight, gridModuleHeight, gridModuleWidth, gridGutter, innerSquareWidth){
+
+// drawLetter(letter.t, letter.s, this.gridWidth, this.gridHeight);
+drawLetter(letterT, letterS, this.gridWidth, this.gridHeight, this.gridModuleHeight, this.gridModuleWidth, this.gridGutter, this.innerSquareWidth);
+
+
+r.draw();
+
+
+};
+
+
 
 

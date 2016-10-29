@@ -78,7 +78,7 @@ function drawLetter(letter, width, height, moduleHeight, letterA) {
   pct += step;
    if (pct < 1.0) {
     thisX = 2*250 - pct * 220;
-    thisY = 2*250 - pow(pct, + exponent) * 220;
+    thisY = 2*250 - pow(pct, exponent) * 220;
   }
   r.circle(thisX, thisY, letterA.c3s, myGroup).fill(255, 0, 0).stroke(false);  
 
@@ -110,7 +110,7 @@ var size = 40;
 r.draw();
 
 drawLetter(letters.b, gridWidth, gridHeight, gridModuleHeight, letters.a);
-// https://processing.org/examples/movingoncurves.html
+
 
 };
 
