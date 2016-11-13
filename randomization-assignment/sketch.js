@@ -17,13 +17,6 @@ var colors = [
   [ new Rune.Color('hsv', 43, 94, 59), new Rune.Color('hsv', 43, 91, 89, 0.8) ], // yellows
 ];
 
-var colors2 = [
-  [ new Rune.Color('hsv', 0, 95, 22), new Rune.Color('hsv', 0, 80, 77, 0.8) ],  // reds
-  [ new Rune.Color('hsv', 85, 94, 20), new Rune.Color('hsv', 85, 79, 38, 0.8) ], // greens
-  [ new Rune.Color('hsv', 205, 98, 48), new Rune.Color('hsv', 205, 18, 59, 0.8) ], // blues
-  [ new Rune.Color('hsv', 43, 104, 59), new Rune.Color('hsv', 43, 91, 89, 0.8) ], // yellows
-];
-
 // Find random points for the gray line
 // -------------------------------------
 
@@ -60,13 +53,20 @@ r.on('update', function(){
 
       var shape = [{fromVec: new Rune.Vector(bottomLeft.x, bottomLeft.y), toVec: new Rune.Vector(ranHeightX, ranHeightY)}];
 
-      console.log(shape)
+      // console.log(shape)
 
       var pos = shape[curLine].fromVec.lerp(shape[curLine].toVec, cur)
 
-      console.log(pos);
+      // console.log(pos);
 
-      r.rect(pos.x, pos.y, 1, 1).fill(0).stroke();
+      // var colorset = colors[Math.floor(Rune.random(colors.length))];
+      var colorset = Math.floor(Math.random()*255);
+      console.log(colorset);
+
+      r.rect(pos.x, pos.y, 1, 1)
+       .fill(colorset)
+       .stroke();
+
       cur += 0.001;
 
       if(cur > 1) {
