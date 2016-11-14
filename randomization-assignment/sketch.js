@@ -60,7 +60,6 @@ r.on('update', function(){
       // console.log(pos);
 
       var colorset = colors[Math.floor(Rune.random(colors.length))];
-      // var colorset = Math.floor(Math.random()*255);
       console.log(colorset);
 
       r.rect(pos.x, pos.y, 5, 5)
