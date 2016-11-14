@@ -59,13 +59,25 @@ r.on('update', function(){
 
       // console.log(pos);
 
-      // var colorset = colors[Math.floor(Rune.random(colors.length))];
-      var colorset = Math.floor(Math.random()*255);
+      var colorset = colors[Math.floor(Rune.random(colors.length))];
+      // var colorset = Math.floor(Math.random()*255);
       console.log(colorset);
 
-      r.rect(pos.x, pos.y, 1, 1)
-       .fill(colorset)
-       .stroke();
+      r.rect(pos.x, pos.y, 5, 5)
+       .fill(colorset[1])
+       .stroke(false);
+       
+       // .closePath(); r.path(pos.x, pos.y)
+       // .curveTo(pos.x+5,pos.y+5,pos.x, pos.y)
+       // .fill("5a72a0")
+     
+
+      // r.path(pos.x, pos.y)
+      //   .lineTo(0,pos.x)
+      //   .curveTo(pos.x,pos.x+100,pos.y+100,pos.x+300,pos.y)
+      //   .stroke("5a72a0")
+      //   .fill("5a72a0")
+      //   .closePath();
 
       cur += 0.001;
 
